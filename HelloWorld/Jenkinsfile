@@ -1,0 +1,11 @@
+node
+{
+stage('SCM checkout')
+{
+git 'https://github.com/harsha-299/FirstMavenTest/new/master/HelloWorld'
+}
+stage('compile-package')
+{
+sh 'mvn package'
+}
+}
