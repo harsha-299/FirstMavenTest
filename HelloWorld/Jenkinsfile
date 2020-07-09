@@ -7,7 +7,7 @@ node {
     def buildInfo
 
     stage('Clone sources') {
-        git url: 'https://github.com/harsha-299/FirstMavenTest.git'
+        git url: 'https://github.com/jfrogdev/project-examples.git'
     }
 
     stage('Artifactory configuration') {
