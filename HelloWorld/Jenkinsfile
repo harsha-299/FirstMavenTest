@@ -2,7 +2,7 @@ node
 {
 stage('SCM checkout')
 {
-git 'https://github.com/harsha-299/FirstMavenTest/new/master/HelloWorld'
+git 'https://github.com/harsha-299/FirstMavenTest/'
 }
 stage('compile-package')
 {
