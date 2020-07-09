@@ -2,6 +2,7 @@ node
 {
 stage('SCM checkout')
 {
+  tool name: 'maven-3',type: 'maven'
 git 'https://github.com/harsha-299/FirstMavenTest/'
 }
 stage('compile-package')
