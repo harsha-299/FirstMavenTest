@@ -1,9 +1,5 @@
-
-node{
-    stage('SCM checkout')
-    {
-        git 'https://github.com/harsha-299/FirstMavenTest.git'
-    }
+pipeline {
+    agent any
     stages {
         stage('---clean---') {
             steps {
