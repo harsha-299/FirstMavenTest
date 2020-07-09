@@ -1,28 +1,12 @@
-pipeline {
-    agent any
-    options {
-        skipStagesAfterUnstable()
+node
+{
+    stage('SCM  Checkout'){
+        git 'https://github.com/harsha-299/FirstMavenTest'
     }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
-        stage('Deliver') { 
-            steps {
-                sh './jenkins/scripts/deliver.sh' 
-            }
-        }
+    stage('compile package')
+    {
+        def mvnHome= tool name: 'apache-maven', type: 'maven'
+        sh "${mvnHome}/bin/mvn package"
     }
 }
+        
