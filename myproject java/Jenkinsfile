@@ -1,0 +1,29 @@
+node{
+  stage('SCM checkout')
+  {
+    git 'https://github.com/harsha-299/FirstMavenTest.git'
+  }
+stage {
+stage ('Compile Stage') {
+steps {
+withMaven(maven : 'apache-maven-3.6.3') {
+sh 'mvn clean compile'
+}
+}
+}
+stage ('Testing Stage') {
+steps {
+withMaven(maven : 'apache-maven-3.6.3') {
+sh'mvn test'
+}
+}
+}
+stage ('Install Stage') {
+steps {
+withMaven(maven : 'apache-maven-3.6.3') {
+sh'mvn install'
+}
+}
+}
+}
+}
