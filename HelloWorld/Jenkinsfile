@@ -3,7 +3,7 @@ node{
   {
     git 'https://github.com/harsha-299/FirstMavenTest.git'
   }
-stages {
+stage {
 stage ('Compile Stage') {
 steps {
 withMaven(maven : 'apache-maven-3.6.3') {
