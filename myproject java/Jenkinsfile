@@ -1,12 +1,20 @@
-node
-{
-    stage('SCM  Checkout'){
-        git 'https://github.com/harsha-299/FirstMavenTest'
-    }
-    stage('compile package')
-    {
-        def mvnHome= tool name: 'apache-maven', type: 'maven'
-        sh "${mvnHome}/bin/mvn package"
-    }
+pipeline{
+agent any
+tools {
+maven "apache-maven"
+}
+stages {
+stage("build") {
+steps{
+sh "mvn -version"
+sh "mvn clean install"
+}
+}
+}
+post {
+always {
+cleanWs()
+}
+}
 }
         
